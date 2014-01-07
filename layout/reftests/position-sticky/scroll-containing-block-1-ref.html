@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- Any copyright is dedicated to the Public Domain.
+   - http://creativecommons.org/publicdomain/zero/1.0/ -->
+<html>
+  <head>
+    <title>CSS Test: Sticky Positioning - absolute containing block</title>
+    <link rel="author" title="Kevin Grandon" href="mailto:kgrandon@mozilla.com">
+    <link rel="match" href="scroll-containing-block-1-ref.html">
+    <meta name="assert" content="Sticky positioned elements should stay within a containing block established by their scroll container">
+    <style>
+      body {
+        height: 200px;
+        margin: 0;
+      }
+      #scroll {
+        height: 200px;
+        border: 1px solid black;
+      }
+      #sticky {
+        position: sticky;
+        top: 180px;
+        height: 50px;
+        background: black
+      }
+    </style>
+  <body>
+    <div id="scroll">
+      <div id="sticky"></div>
+    </div>
+  </body>
+</html>
