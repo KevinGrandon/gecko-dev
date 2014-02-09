@@ -6,7 +6,7 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 "use strict";
-dump("############################### browserElementPanning.js loaded\n");
+// dump("############################### browserElementPanning.js loaded\n");
 
 let { classes: Cc, interfaces: Ci, results: Cr, utils: Cu }  = Components;
 Cu.import("resource://gre/modules/Services.jsm");

@@ -4,7 +4,7 @@
 
 "use strict";
 
-dump("######################## BrowserElementChildPreload.js loaded\n");
+// dump("######################## BrowserElementChildPreload.js loaded\n");
 
 var BrowserElementIsReady = false;
 
