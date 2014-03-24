@@ -182,7 +182,9 @@ var steps = [
   },
   function() {
     info("== TEST == Get all apps");
-    getAll(false);
+    // Temporarily disabled, bug 967516
+    //getAll(false);
+    next();
   },
   function() {
     info("== TEST == Get packaged app");
