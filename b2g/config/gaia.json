@@ -1,7 +1,7 @@
 {
     "git": {
-        "remote": "", 
-        "branch": "", 
+        "remote": "https://github.com/justindarc/gaia.git",
+        "branch": "camera-new-features+bug988118",
         "revision": ""
     }, 
     "revision": "1bd0f38add918047002f67c22ca407ca3844be4f", 
