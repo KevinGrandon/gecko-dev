@@ -1,8 +1,8 @@
 {
     "git": {
         "git_revision": "", 
-        "remote": "", 
-        "branch": ""
+        "remote": "https://github.com/KevinGrandon/gaia.git", 
+        "branch": "bug_989065_wifi_test_sandbox"
     }, 
     "revision": "57c407d3e94ba322688b4bd121eda317806ab44e", 
     "repo_path": "/integration/gaia-central"
