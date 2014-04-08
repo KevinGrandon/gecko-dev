@@ -1,8 +1,8 @@
 {
     "git": {
         "git_revision": "", 
-        "remote": "", 
-        "branch": ""
+        "remote": "https://github.com/kevingrandon/gaia.git", 
+        "branch": "bug_967516_enable_device_debug_default"
     }, 
     "revision": "82aa7db46a22bc99998468aa433eafb33d739ed6", 
     "repo_path": "/integration/gaia-central"
