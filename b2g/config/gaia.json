@@ -1,8 +1,8 @@
 {
     "git": {
         "git_revision": "", 
-        "remote": "", 
-        "branch": ""
+        "remote": "https://github.com/KevinGrandon/gaia.git",
+        "branch": "bug_1001224_update_node_modules"
     }, 
     "revision": "949df3be29b432b53a4ee232e7fd19881b5aca6b", 
     "repo_path": "/integration/gaia-central"
