@@ -1,8 +1,8 @@
 {
     "git": {
         "git_revision": "", 
-        "remote": "", 
-        "branch": ""
+        "remote": "https://github.com/KevinGrandon/gaia.git", 
+        "branch": "bug_1007352_bookmark_into_last_group"
     }, 
     "revision": "e2fad48ac3a632fbd405ff958c9dbf0d821f7b47", 
     "repo_path": "/integration/gaia-central"
