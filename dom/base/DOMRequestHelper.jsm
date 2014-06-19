@@ -44,6 +44,7 @@ this.DOMRequestIpcHelper = function DOMRequestIpcHelper() {
   this._listeners = null;
   this._requests = null;
   this._window = null;
+  this.countListeners = false;
 }
 
 DOMRequestIpcHelper.prototype = {
@@ -83,9 +84,11 @@ DOMRequestIpcHelper.prototype = {
     aMessages.forEach((aMsg) => {
       let name = aMsg.name || aMsg;
       // If the listener is already set and it is of the same type we just
-      // bail out. If it is not of the same type, we throw an exception.
+      // increase the count and bail out. If it is not of the same type,
+      // we throw an exception.
       if (this._listeners[name] != undefined) {
-        if (!!aMsg.weakRef == this._listeners[name]) {
+        if (!!aMsg.weakRef == this._listeners[name].weakRef) {
+          this._listeners[name].numberOfListeners++;
           return;
         } else {
           throw Cr.NS_ERROR_FAILURE;
@@ -94,7 +97,10 @@ DOMRequestIpcHelper.prototype = {
 
       aMsg.weakRef ? cpmm.addWeakMessageListener(name, this)
                    : cpmm.addMessageListener(name, this);
-      this._listeners[name] = !!aMsg.weakRef;
+      this._listeners[name] = {
+        weakRef: !!aMsg.weakRef,
+        numberOfListeners: 1
+      };
     });
   },
 
@@ -116,9 +122,14 @@ DOMRequestIpcHelper.prototype = {
         return;
       }
 
-      this._listeners[aName] ? cpmm.removeWeakMessageListener(aName, this)
-                             : cpmm.removeMessageListener(aName, this);
-      delete this._listeners[aName];
+      this._listeners[aName].numberOfListeners--;
+
+      if (!this.countListeners || !this._listeners[aName].numberOfListeners) {
+        this._listeners[aName].weakRef ?
+            cpmm.removeWeakMessageListener(aName, this)
+          : cpmm.removeMessageListener(aName, this);
+        delete this._listeners[aName];
+      }
     });
   },
 
@@ -139,12 +150,13 @@ DOMRequestIpcHelper.prototype = {
    *  - or only strings containing the message name, in which case the listener
    *    will be added as a strong referred one by default.
    */
-  initDOMRequestHelper: function(aWindow, aMessages) {
+  initDOMRequestHelper: function(aWindow, aMessages, aCountListeners) {
     // Query our required interfaces to force a fast fail if they are not
     // provided. These calls will throw if the interface is not available.
     this.QueryInterface(Ci.nsISupportsWeakReference);
     this.QueryInterface(Ci.nsIObserver);
 
+    this.countListeners = !!aCountListeners;
     if (aMessages) {
       this.addMessageListeners(aMessages);
     }

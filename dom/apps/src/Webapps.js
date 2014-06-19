@@ -234,7 +234,7 @@ WebappsRegistry.prototype = {
 
   // nsIDOMGlobalPropertyInitializer implementation
   init: function(aWindow) {
-    this.initDOMRequestHelper(aWindow, "Webapps:Install:Return:OK");
+    this.initDOMRequestHelper(aWindow, "Webapps:Install:Return:OK", true);
 
     let util = this._window.QueryInterface(Ci.nsIInterfaceRequestor)
                            .getInterface(Ci.nsIDOMWindowUtils);
@@ -358,13 +358,13 @@ WebappsApplication.prototype = {
     this._downloadError = null;
 
     this.initDOMRequestHelper(aWindow, [
-      { name: "Webapps:CheckForUpdate:Return:KO", weakRef: true },
-      { name: "Webapps:Connect:Return:OK", weakRef: true },
-      { name: "Webapps:Connect:Return:KO", weakRef: true },
-      { name: "Webapps:FireEvent", weakRef: true },
-      { name: "Webapps:GetConnections:Return:OK", weakRef: true },
-      { name: "Webapps:UpdateState", weakRef: true }
-    ]);
+        { name: "Webapps:CheckForUpdate:Return:KO", weakRef: true },
+        { name: "Webapps:Connect:Return:OK", weakRef: true },
+        { name: "Webapps:Connect:Return:KO", weakRef: true },
+        { name: "Webapps:FireEvent", weakRef: true },
+        { name: "Webapps:GetConnections:Return:OK", weakRef: true },
+        { name: "Webapps:UpdateState", weakRef: true }
+      ], true);
 
     cpmm.sendAsyncMessage("Webapps:RegisterForMessages", {
       messages: ["Webapps:FireEvent",
@@ -744,7 +744,8 @@ function WebappsApplicationMgmt(aWindow) {
                                       "Webapps:Uninstall:Broadcast:Return:OK",
                                       "Webapps:Uninstall:Return:KO",
                                       "Webapps:Install:Return:OK",
-                                      "Webapps:GetNotInstalled:Return:OK"]);
+                                      "Webapps:GetNotInstalled:Return:OK"],
+                                      true);
 
   cpmm.sendAsyncMessage("Webapps:RegisterForMessages",
                         {
