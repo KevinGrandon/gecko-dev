@@ -1,8 +1,8 @@
 {
     "git": {
         "git_revision": "", 
-        "remote": "", 
-        "branch": ""
+        "remote": "https://github.com/KevinGrandon/gaia.git", 
+        "branch": "bug_1020158_collections_iac_retry"
     }, 
     "revision": "2f82bebb6bbcad97fbbf24640db6aa99b6177ddc", 
     "repo_path": "/integration/gaia-central"
