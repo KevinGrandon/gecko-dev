@@ -529,7 +529,8 @@ BrowserElementChild.prototype = {
 
     let handlers = {
       'theme-color': this._themeColorChangedHandler,
-      'application-name': this._applicationNameChangedHandler
+      'application-name': this._applicationNameChangedHandler,
+      'urlbar-control': this._urlbarControlChangedHandler,
     };
 
     let handler = handlers[e.target.name];
@@ -676,6 +677,15 @@ BrowserElementChild.prototype = {
   _themeColorChangedHandler: function(eventType, target) {
     let meta = {
       name: 'theme-color',
+      content: target.content,
+      type: eventType.replace('DOMMeta', '').toLowerCase()
+    };
+    sendAsyncMsg('metachange', meta);
+  },
+
+  _urlbarControlChangedHandler: function(eventType, target) {
+    let meta = {
+      name: 'urlbar-control',
       content: target.content,
       type: eventType.replace('DOMMeta', '').toLowerCase()
     };
