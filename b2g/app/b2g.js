@@ -1126,3 +1126,9 @@ pref("dom.requestSync.enabled", true);
 
 // Resample touch events on b2g
 pref("gfx.touch.resample", true);
+
+// Because we can't have nice things.
+#ifdef MOZ_GRAPHENE
+#include ../graphene/graphene.js
+#endif
+
