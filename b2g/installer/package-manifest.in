@@ -130,6 +130,7 @@
 #endif
 @RESPATH@/blocklist.xml
 @RESPATH@/ua-update.json
+@RESPATH@/settings.json
 #ifdef XP_UNIX
 #ifndef XP_MACOSX
 @RESPATH@/run-mozilla.sh
