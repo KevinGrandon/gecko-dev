@@ -35,7 +35,7 @@ OptimizationInfo::initNormalOptimizationInfo()
     loopUnrolling_ = true;
     autoTruncate_ = true;
     sink_ = true;
-    registerAllocator_ = RegisterAllocator_Backtracking;
+    registerAllocator_ = RegisterAllocator_LSRA;
 
     inlineMaxBytecodePerCallSiteMainThread_ = 500;
     inlineMaxBytecodePerCallSiteOffThread_ = 1000;
