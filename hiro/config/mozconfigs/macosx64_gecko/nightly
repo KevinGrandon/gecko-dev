@@ -32,7 +32,4 @@ GAIADIR=$topsrcdir/gaia
 # Include Firefox OS fonts.
 MOZTTDIR=$topsrcdir/moztt
 
-# Build simulator xpi and phone tweaks for b2g-desktop
-FXOS_SIMULATOR=1
-
 . "$topsrcdir/b2g/config/mozconfigs/common.override"
