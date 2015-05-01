@@ -15,8 +15,8 @@ MOZ_APP_UA_NAME=Firefox
 MOZ_B2G_VERSION=3.0.0.0-prerelease
 MOZ_B2G_OS_NAME=Boot2Gecko
 
-MOZ_BRANDING_DIRECTORY=b2g/graphene/branding
-MOZ_OFFICIAL_BRANDING_DIRECTORY=b2g/graphene/branding
+MOZ_BRANDING_DIRECTORY=b2g/branding/horizon
+MOZ_OFFICIAL_BRANDING_DIRECTORY=b2g/branding/horizon
 # MOZ_APP_DISPLAYNAME is set by branding/configure.sh
 
 MOZ_SAFE_BROWSING=
