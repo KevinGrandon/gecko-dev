@@ -2,7 +2,7 @@
 // for keyCode values.
 // Default value is F5
 pref("b2g.reload_key", '{ "key": 116, "shift": false, "ctrl": false, "alt": false, "meta": false }');
-pref("b2g.default.start_manifest_url", "https://kevingrandon.github.io/browser/web/manifest.webapp");
+pref("b2g.default.start_manifest_url", "https://mozvr.github.io/horizon/web/manifest.webapp");
 
 pref("dom.ipc.tabs.disabled", false);
 pref("dom.vr.enabled", true);
